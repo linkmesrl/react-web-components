@@ -1,0 +1,21 @@
+{
+  "name": "contactOne",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Daniele Bertella <daniele.bertella@link-me.it>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/linkmesrl/react-web-components",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clab-ui-components": "~1.0.3"
+  }
+}
