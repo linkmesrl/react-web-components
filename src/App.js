@@ -4,6 +4,16 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: 1 };
+  }
+
+  changeValue = () => {
+    let num = Math.floor(Math.random() * 3);
+    this.setState({ value: num });
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,11 +21,23 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <h1>Simple note application layout</h1>
 
         <tabs-clab vertical labels='["Today at 16:30", "Yesterday at 14:42", "Yesterday at 8:15"]'>
           <div className="tab-content">
-            <p>Get things <b>done</b></p>
+            <p>
+              Testing a Polymer component
+            </p>
+            <p>
+              <button-clab onClick={this.changeValue}>Click me</button-clab>
+            </p>
+            <p>
+              <group-clab value={this.state.value}>
+                <button-clab>One</button-clab>
+                <button-clab>Two</button-clab>
+                <button-clab>Three</button-clab>
+              </group-clab>
+            </p>
+
           </div>
         	<div className="tab-content">
         	  <ul className="default">
@@ -30,6 +52,9 @@ class App extends Component {
         </tabs-clab>
 
         <button-clab block icon="icon-plus">New note</button-clab>
+
+
+
       </div>
     );
   }
