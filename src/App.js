@@ -7,7 +7,9 @@ class App extends Component {
     super(props);
     this.state = { value: 1, visible: true };
   }
-
+  componentDidMount() {
+    document.body.addEventListener('change', this.change);
+  }
   changeValue = () => {
     let num = Math.floor(Math.random() * 3);
     this.setState({ value: num });
@@ -22,7 +24,11 @@ class App extends Component {
     console.log(e.target.htmlFor);
     this.setState({ checked: e.target.htmlFor });
   };
+  change = (e) => {
+    console.log('change', e.target);
+  };
   render() {
+
     let classes;
     if (!!this.state.toggle) {
       classes = 'accordion-block active';
@@ -37,7 +43,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <alert-clab notify visible no-animation type="primary"> content </alert-clab>
-        <tabs-clab vertical labels='["Today at 16:30", "Yesterday at 14:42", "Yesterday at 8:15"]'>
+        <tabs-clab vertical labels='["Today at 16:30", "Yesterday at 14:42", "Yesterday at 8:15"]' onChange={this.changeTab}>
           <div className="tab-content">
             <p>
               POLYMER
